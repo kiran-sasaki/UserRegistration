@@ -30,6 +30,14 @@
                 Console.WriteLine("Email Matched");
             else
                 Console.WriteLine("Email not matched");
+            //UC4
+            Console.WriteLine("please enter PhoneNumber");
+            string phonenumber = Console.ReadLine();
+            bool PhnNO = user.validatephonenumber(phonenumber);
+            if (PhnNO)
+                Console.WriteLine("Phn Number Matched");
+            else
+                Console.WriteLine("Phn Number not matched");
         }
     }
 }
