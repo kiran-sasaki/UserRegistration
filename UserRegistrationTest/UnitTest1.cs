@@ -85,5 +85,15 @@ namespace UserRegistrationTest
             bool result = user.Validatepassword(pwd);
             Assert.AreEqual(true, result);
         }
+        [TestMethod]
+        [DataRow("MarcoBvb@gmail.com")]
+        [DataRow("Reuslio.co.in")]
+        [DataRow("LionelMessi10@barcelona.co.in")]
+        public void ParamterizedEmailTest(string Email)
+        {
+            UserDetials user = new UserDetials();
+            bool result = user.ValidateEmailAddress(Email);
+            Assert.AreEqual(true, result);
+        }
     }
 }
