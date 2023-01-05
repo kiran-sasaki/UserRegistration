@@ -21,6 +21,15 @@
                 Console.WriteLine("Lastname Matched");
             else
                 Console.WriteLine("LastName not matched");
+            //UC3
+            Console.WriteLine("please enter The EmailAdress: ");
+            string Emailaddress = Console.ReadLine();
+
+            bool Email = user.validateEmailAddress(Emailaddress);
+            if (Email)
+                Console.WriteLine("Email Matched");
+            else
+                Console.WriteLine("Email not matched");
         }
     }
 }
