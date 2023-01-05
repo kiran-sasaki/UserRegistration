@@ -21,24 +21,93 @@ namespace UserRegistrationAssignment
         public static string REGEX_PASSWORD = "(?=.*?[A-Z])(?=.*?[a-z])(?=.*[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
         public bool ValidateFirstname(string firstname)
         {
-            return Regex.IsMatch(firstname, REGEX_FIRSTNAME);
-
+            try
+            {
+                if (firstname.Equals(string.Empty))
+                {
+                    throw new UserRegistrationException(UserRegistrationException.ExceptionType.EMPTY_MESSAGE, "FirstName should not be empty");
+                }
+                else
+                {
+                    return Regex.IsMatch(firstname, REGEX_FIRSTNAME);
+                }
+            }
+            catch(Exception)
+            {
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_FIRSTNAME, "Firstname is invalid");
+            }
         }
         public bool ValidateLastname(string lastname)
         {
-            return Regex.IsMatch(lastname, REGEX_LASTNAME);
+            try
+            {
+                if (lastname.Equals(string.Empty))
+                {
+                    throw new UserRegistrationException(UserRegistrationException.ExceptionType.EMPTY_MESSAGE, "LastName should not be empty");
+                }
+                else
+                {
+                    return Regex.IsMatch(lastname, REGEX_LASTNAME);
+                }
+            }
+            catch(Exception)
+            {
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_LASTNAME, "Lastname is invalid");
+            }
         }
         public bool ValidateEmailAddress(string emailAddress)
         {
-            return Regex.IsMatch(emailAddress, REGEX_EMAIL_ADDRESS);
+            try
+            {
+                if (emailAddress.Equals(string.Empty))
+                {
+                    throw new UserRegistrationException(UserRegistrationException.ExceptionType.EMPTY_MESSAGE, "EmailAddress should not be Empty");
+                }
+                else
+                {
+                    return Regex.IsMatch(emailAddress, REGEX_EMAIL_ADDRESS);
+                }
+            }
+            catch(Exception)
+            {
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_EMAIL_ADDRESS, "EmailAddress is Invalid");
+            }
         }
         public bool Validatephonenumber(string phonenumber)
         {
-            return Regex.IsMatch(phonenumber, REGEX_PHONENUMBER);
+            try
+            {
+                if(phonenumber.Equals(string.Empty))
+                {
+                    throw new UserRegistrationException(UserRegistrationException.ExceptionType.EMPTY_MESSAGE, "PhoneNumber should not be Empty");
+                }
+                else
+                {
+                    return Regex.IsMatch(phonenumber, REGEX_PHONENUMBER);
+                }
+            }
+            catch(Exception)
+            {
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_PHONENUMBER, "PhoneNumber is invalid");
+            }
         }
         public bool Validatepassword(string password)
         {
-            return Regex.IsMatch(password, REGEX_PASSWORD);
+            try
+            {
+                if(password.Equals(string.Empty))
+                {
+                    throw new UserRegistrationException(UserRegistrationException.ExceptionType.EMPTY_MESSAGE, "Password should not be Empty");
+                }
+                else
+                {
+                    return Regex.IsMatch(password, REGEX_PASSWORD);
+                }
+            }
+            catch(Exception)
+            {
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_PASSWORD, "Password is Invalid");
+            }
         }
     }
 }
