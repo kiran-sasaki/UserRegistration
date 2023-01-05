@@ -38,6 +38,14 @@
                 Console.WriteLine("Phn Number Matched");
             else
                 Console.WriteLine("Phn Number not matched");
+            //UC5
+            Console.WriteLine("please enter PassWord: ");
+            string passWord = Console.ReadLine();
+            bool pwd = user.validatepassword(passWord);
+            if (pwd)
+                Console.WriteLine("Password Matched");
+            else
+                Console.WriteLine("Password not matched");
         }
     }
 }

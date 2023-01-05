@@ -17,6 +17,8 @@ namespace UserRegistrationAssignment
         public static string REGEX_EMAIL_ADDRESS = "^[a-zA-Z0-9]([._+-]{0,1}[a-zA-Z0-9])*[@]{1}[a-zA-Z0-9]{1,}[.]{1}[a-zA-Z]{2,3}([.]{1}[a-zA-Z]{2,3}){0,1}$";
         //Regular Expression For PhoneNumber Validation
         public static string REGEX_PHONENUMBER = "^[9]{1}[1]{1}\\s[0-9]{10}$";
+        //Regular Expression For PassWord Validation
+        public static string REGEX_PASSWORD = "^[a-zA-Z0-9]{8,}$";
         public bool ValidateFirstname(string firstname)
         {
             return Regex.IsMatch(firstname, REGEX_FIRSTNAME);
@@ -33,6 +35,10 @@ namespace UserRegistrationAssignment
         public bool validatephonenumber(string phonenumber)
         {
             return Regex.IsMatch(phonenumber, REGEX_PHONENUMBER);
+        }
+        public bool Validatepassword(string password)
+        {
+            return Regex.IsMatch(password, REGEX_PASSWORD);
         }
     }
 }
