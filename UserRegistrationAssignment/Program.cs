@@ -25,7 +25,7 @@
             Console.WriteLine("please enter The EmailAdress: ");
             string Emailaddress = Console.ReadLine();
 
-            bool Email = user.validateEmailAddress(Emailaddress);
+            bool Email = user.ValidateEmailAddress(Emailaddress);
             if (Email)
                 Console.WriteLine("Email Matched");
             else
@@ -33,7 +33,7 @@
             //UC4
             Console.WriteLine("please enter PhoneNumber");
             string phonenumber = Console.ReadLine();
-            bool PhnNO = user.validatephonenumber(phonenumber);
+            bool PhnNO = user.Validatephonenumber(phonenumber);
             if (PhnNO)
                 Console.WriteLine("Phn Number Matched");
             else
@@ -41,7 +41,7 @@
             //UC5
             Console.WriteLine("please enter PassWord: ");
             string passWord = Console.ReadLine();
-            bool pwd = user.validatepassword(passWord);
+            bool pwd = user.Validatepassword(passWord);
             if (pwd)
                 Console.WriteLine("Password Matched");
             else
