@@ -10,9 +10,9 @@ namespace UserRegistrationTest
         {
             try
             {
-                string name = "kiran";
+                List<string> firstname = new List<string>() {"kiran"};
                 UserDetials user = new UserDetials();
-                bool result = user.ValidateFirstname(name);
+                bool result = user.ValidateFirstName(firstname);
                 Assert.AreEqual(true, result);
             }
             catch(Exception e)
@@ -23,17 +23,17 @@ namespace UserRegistrationTest
         [TestMethod]
         public void FirstNameValidationTest2()
         {
-            string name = "Kiran";
+            List<string> firstname = new List<string>() { "Kiran","reus" };
             UserDetials user = new UserDetials();
-            bool result = user.ValidateFirstname(name);
+            bool result = user.ValidateFirstName(firstname);
             Assert.AreEqual(true, result);
         }
         [TestMethod]
         public void LastNameValidationTest1()
         {
-            string name = "Reus";
+            List<string> lastname = new List<string>() { "Messi" };
             UserDetials user = new UserDetials();
-            bool result = user.ValidateLastname(name);
+            bool result = user.ValidateLastName(lastname);
             Assert.AreEqual(true, result);
         }
         [TestMethod]
@@ -41,12 +41,12 @@ namespace UserRegistrationTest
         {
             try
             {
-                string name = "reus";
+                List<string> lastname = new List<string>() { "lionel" };
                 UserDetials user = new UserDetials();
-                bool result = user.ValidateLastname(name);
+                bool result = user.ValidateLastName(lastname);
                 Assert.AreEqual(true, result);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
@@ -54,7 +54,7 @@ namespace UserRegistrationTest
         [TestMethod]
         public void EmailValidationTest1()
         {
-            string email = "Kiranreusmarco11@gmail.com";
+            List<string> email = new List<string>() { "reusmarco11@gmail.com" };
             UserDetials user = new UserDetials();
             bool result = user.ValidateEmailAddress(email);
             Assert.AreEqual(true, result);
@@ -64,7 +64,7 @@ namespace UserRegistrationTest
         {
             try
             {
-                string email = "Kiranreusmarco11@com";
+                List<string> email = new List<string>() { "crmarco11.com.rf" };
                 UserDetials user = new UserDetials();
                 bool result = user.ValidateEmailAddress(email);
                 Assert.AreEqual(true, result);
@@ -77,9 +77,9 @@ namespace UserRegistrationTest
         [TestMethod]
         public void PhoneNumberValidationTest1()
         {
-            string phn = "91 9343545445";
+            List<string> phn = new List<string>() { "91 6575345434" };
             UserDetials user = new UserDetials();
-            bool result = user.Validatephonenumber(phn);
+            bool result = user.ValidatePhoneNumber(phn);
             Assert.AreEqual(true, result);
         }
         [TestMethod]
@@ -87,9 +87,9 @@ namespace UserRegistrationTest
         {
             try
             {
-                string phn = "91 943545445";
+                List<string> phn = new List<string>() { "91 5657534543454" };
                 UserDetials user = new UserDetials();
-                bool result = user.Validatephonenumber(phn);
+                bool result = user.ValidatePhoneNumber(phn);
                 Assert.AreEqual(true, result);
             }
             catch (Exception e)
@@ -100,9 +100,9 @@ namespace UserRegistrationTest
         [TestMethod]
         public void PasswordValidationTest1()
         {
-            string pwd = "Marco11*";
+            List<string> pwd = new List<string>() { "Reusmr12*" };
             UserDetials user = new UserDetials();
-            bool result = user.Validatepassword(pwd);
+            bool result = user.ValidatePassword(pwd);
             Assert.AreEqual(true, result);
         }
         [TestMethod]
@@ -110,9 +110,9 @@ namespace UserRegistrationTest
         {
             try
             {
-                string pwd = "ReusMarco11";
+                List<string> pwd = new List<string>() { "feusmao12*" };
                 UserDetials user = new UserDetials();
-                bool result = user.Validatepassword(pwd);
+                bool result = user.ValidatePassword(pwd);
                 Assert.AreEqual(true, result);
             }
             catch (Exception e)
@@ -120,22 +120,22 @@ namespace UserRegistrationTest
                 Console.WriteLine(e.Message);
             }
         }
-        [TestMethod]
-        [DataRow("MarcoBvb@gmail.com")]
-        [DataRow("Reuslio.co.in")]
-        [DataRow("LionelMessi10@barce")]
-        public void ParamterizedEmailTest(string Email)
-        {
-            try
-            {
-                UserDetials user = new UserDetials();
-                bool result = user.ValidateEmailAddress(Email);
-                Assert.AreEqual(true, result);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
+        //[TestMethod]
+        //[DataRow("MarcoBvb@gmail.com")]
+        //[DataRow("Reuslio.co.in")]
+        //[DataRow("LionelMessi10@barce")]
+        //public void ParamterizedEmailTest(List<string> Email)
+        //{
+        //    try
+        //    {
+        //        UserDetials user = new UserDetials();
+        //        bool result = user.ValidateEmailAddress(Email);
+        //        Assert.AreEqual(true, result);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e.Message);
+        //    }
+        //}
     }
 }

@@ -19,94 +19,93 @@ namespace UserRegistrationAssignment
         public static string REGEX_PHONENUMBER = "^[9]{1}[1]{1}\\s[0-9]{10}$";
         //Regular Expression For PassWord Validation
         public static string REGEX_PASSWORD = "(?=.*?[A-Z])(?=.*?[a-z])(?=.*[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
-        public bool ValidateFirstname(string firstname)
+
+        public bool ValidateFirstName(List<string> firstName)
         {
             try
             {
-                if (firstname.Equals(string.Empty))
+                Regex pattern = new Regex(REGEX_FIRSTNAME);
+                if (firstName.Equals(string.Empty))
                 {
-                    throw new UserRegistrationException(UserRegistrationException.ExceptionType.EMPTY_MESSAGE, "FirstName should not be empty");
+                    throw new UserRegistrationException(UserRegistrationException.ExceptionType.EMPTY_MESSAGE, "Name should not be empty");
                 }
-                else
-                {
-                    return Regex.IsMatch(firstname, REGEX_FIRSTNAME);
-                }
+                bool result = firstName.Any(str => pattern.IsMatch(str));
+                return result;
             }
-            catch(Exception)
+            catch (Exception)
             {
-                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_FIRSTNAME, "Firstname is invalid");
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_FIRSTNAME, "FirstName is Invalid");
             }
         }
-        public bool ValidateLastname(string lastname)
+        public bool ValidateLastName(List<string> lastName)
         {
             try
             {
-                if (lastname.Equals(string.Empty))
+                Regex pattern = new Regex(REGEX_FIRSTNAME);
+                if (lastName.Equals(string.Empty))
                 {
-                    throw new UserRegistrationException(UserRegistrationException.ExceptionType.EMPTY_MESSAGE, "LastName should not be empty");
+                    throw new UserRegistrationException(UserRegistrationException.ExceptionType.EMPTY_MESSAGE, "Name should not be empty");
                 }
-                else
-                {
-                    return Regex.IsMatch(lastname, REGEX_LASTNAME);
-                }
+                bool result = lastName.Any(str => pattern.IsMatch(str));
+                return result;
             }
-            catch(Exception)
+            catch (Exception)
             {
-                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_LASTNAME, "Lastname is invalid");
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_LASTNAME, "LastName is Invalid");
             }
         }
-        public bool ValidateEmailAddress(string emailAddress)
+        public bool ValidateEmailAddress(List<string> email)
         {
             try
             {
-                if (emailAddress.Equals(string.Empty))
+                Regex pattern = new Regex(REGEX_EMAIL_ADDRESS);
+                if (email.Equals(string.Empty))
                 {
-                    throw new UserRegistrationException(UserRegistrationException.ExceptionType.EMPTY_MESSAGE, "EmailAddress should not be Empty");
+                    throw new UserRegistrationException(UserRegistrationException.ExceptionType.EMPTY_MESSAGE, "Email should not be empty");
                 }
-                else
-                {
-                    return Regex.IsMatch(emailAddress, REGEX_EMAIL_ADDRESS);
-                }
+                bool result = email.Any(str => pattern.IsMatch(str));
+                return result;
             }
-            catch(Exception)
+            catch (Exception)
             {
-                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_EMAIL_ADDRESS, "EmailAddress is Invalid");
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_EMAIL_ADDRESS, "EMail is Invalid");
+            }
+
+        }
+
+        public bool ValidatePhoneNumber(List<string> mobile)
+        {
+            try
+            {
+                Regex pattern = new Regex(REGEX_PHONENUMBER);
+                if (mobile.Equals(string.Empty))
+                {
+                    throw new UserRegistrationException(UserRegistrationException.ExceptionType.EMPTY_MESSAGE, "mobile number should not be empty");
+                }
+                bool result = mobile.Any(str => pattern.IsMatch(str));
+                return result;
+            }
+            catch (Exception)
+            {
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_PHONENUMBER, "Mobile number is Invalid");
             }
         }
-        public bool Validatephonenumber(string phonenumber)
+
+        public bool ValidatePassword(List<string> password)
         {
             try
             {
-                if(phonenumber.Equals(string.Empty))
+                Regex pattern = new Regex(REGEX_PASSWORD);
+                if (password.Equals(string.Empty))
                 {
-                    throw new UserRegistrationException(UserRegistrationException.ExceptionType.EMPTY_MESSAGE, "PhoneNumber should not be Empty");
+                    throw new UserRegistrationException(UserRegistrationException.ExceptionType.EMPTY_MESSAGE, "password should not be empty");
                 }
-                else
-                {
-                    return Regex.IsMatch(phonenumber, REGEX_PHONENUMBER);
-                }
+                bool result = password.Any(str => pattern.IsMatch(str));
+                return result;
             }
-            catch(Exception)
+            catch (Exception)
             {
-                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_PHONENUMBER, "PhoneNumber is invalid");
-            }
-        }
-        public bool Validatepassword(string password)
-        {
-            try
-            {
-                if(password.Equals(string.Empty))
-                {
-                    throw new UserRegistrationException(UserRegistrationException.ExceptionType.EMPTY_MESSAGE, "Password should not be Empty");
-                }
-                else
-                {
-                    return Regex.IsMatch(password, REGEX_PASSWORD);
-                }
-            }
-            catch(Exception)
-            {
-                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_PASSWORD, "Password is Invalid");
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_PASSWORD, "Passoword is Invalid");
             }
         }
     }
